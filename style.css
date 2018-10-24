@@ -1,7 +1,122 @@
+*{
+    outline-style: dotted;
+    outline-width: 0px;
+    outline-color: lightblue;  
+}
+
+header{
+    padding:30px;
+    height:40%;
+    background-color: #4c4c4c;
+    padding-top:0;
+
+    position: relative;
+    top: 0px;
+}
+
+header div{
+    float:left;
+    width:90px;
+    background-color: #fea104;
+    
+}
+
+#logo{
+    color:#ffffff;
+    font-size: 40px;
+    font-family: sans-serif;
+    font-stretch: expanded;
+    
+}
+
+#about{
+    text-align: center;
+    margin-top:100px;
+    background-color: #ffffff;
+    font-family: sans-serif;
+}
+
+#about h3{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#about section{
+    margin:auto;
+    border-bottom: #fea104 solid 3px;
+    width: 42%;
+    margin-bottom:40px;
+}
+
+#about p{
+    margin:auto;
+    text-align: center;
+    width:50%;
+}
+#survey{
+    float:left;
+    margin-top:20px;
+    margin-bottom: 80px;
+    
+}
+h2{
+    text-align: center;
+    font-family: sans-serif;
+    font-size:35px;
+    margin:auto;
+    margin-top:50px;
+    margin-bottom:25px;
+    
+}
+
+#images{
+    width: 80%;
+    margin:auto;
+}
+#imgdiv{
+    height:330px;
+}
+
+#iT{
+    width:100%;
+    display:block;
+    float:left;
+}
+#images li{
+    font-family: sans-serif;
+    float: left;
+    display:block; 
+    width: 33%;
+    text-align: center;
+}
+
 #list{
     float:left;
 }
+
 img{
-    width:22%;
+    align-content: center;
+    margin:5%;
+    margin-bottom:8px;
+    width:23%;
     float:left;
+}
+
+#analytics{
+    margin-top:300px;
+    font-family:sans-serif;
+    
+}
+#analTitle{
+    font-size:35px;
+    text-align: center;
+
+}
+#chart{
+    float: left;
+    width:75%;
+}
+#list{
+    width:50%;
+    margin-left: 6.8%;
 }

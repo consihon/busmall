@@ -1,13 +1,17 @@
 'use strict';
 
 var imageContainer = document.getElementById('images');
-var chartContainer = document.getElementById('chart').getContext('2d');
+var chartContainer = document.getElementById('canvas').getContext('2d');
 var list = document.getElementById('list');
 var ulEl = document.createElement('ul');
 list.appendChild(ulEl);
 var left = document.getElementById('left');
 var right = document.getElementById('right');
 var mid = document.getElementById('mid');
+var leftText=document.getElementById('lT');
+var midText=document.getElementById('lT');
+var rightText=document.getElementById('lT');
+var allImages = []; // container for all images
 var clickCounter = 0;
 var midIndex=1;
 var leftIndex=0;
@@ -29,8 +33,6 @@ var Image = function (name,src){
   allImages.push(this);
 };
 
-var allImages = []; // container for all images
-
 var chooseNewImage=function(){
   var newRight;
   var newMid;
@@ -44,20 +46,23 @@ var chooseNewImage=function(){
   do{
     newMid = Math.floor(Math.random() * allImages.length);
   }while(newMid === midIndex || newMid === leftIndex || newMid === rightIndex || newMid === newRight || newMid === newLeft );
-  console.log(newLeft,newMid,newRight);
   rightIndex=newRight;
   leftIndex=newLeft;
   midIndex=newMid;
   left.src=allImages[leftIndex].src;
   right.src=allImages[rightIndex].src;
   mid.src=allImages[midIndex].src;
+  leftText.textContent=allImages[leftIndex].name;
+  rightText.textContent=allImages[rightIndex].name;
+  midText.textContent=allImages[midIndex].name;
+
 // choose 3 new random images that dont repeat from the current images or each other
 //change the source of the 3 images on the page currently
 };
 
 var handleBusmalClick = function(event){
-  console.log(event.target);
   if(event.target.id==='left'||event.target.id==='mid'||event.target.id==='right'){
+    console.log(event.target.id);
     clickCounter++;
     allImages[rightIndex].appeared++;
     allImages[midIndex].appeared++;
@@ -70,9 +75,14 @@ var handleBusmalClick = function(event){
     }else{
       allImages[midIndex].liked++;
     }
+    //save to local storage
+
+    localStorage.setItem('allImages', JSON.stringify(allImages));
+    console.log(Image.allImages);
     if(clickCounter<25){
       chooseNewImage();
     }else{
+      document.getElementById('analTitle').textContent='Analytics';
       imageContainer.removeEventListener('click',handleBusmalClick);
       renderChart();
     }
@@ -106,12 +116,14 @@ var renderChart = function () {
   var names = [];
   var likes = [];
   var colors = [];
-  for (var i in allImages) { //does one pass over all goat images, and collects their name, likes and gives them a background color
+  var allProductData=JSON.parse(localStorage.getItem('allImages'));
+  console.log(allProductData);
+  for (var i in allProductData) { //does one pass over all goat images, and collects their name, likes and gives them a background color
     var liEl = document.createElement('li');
-    names.push(allImages[i].name);
-    likes.push(allImages[i].liked);
-    liEl.textContent=allImages[i].name+' ';
-    liEl.textContent+=allImages[i].liked;
+    names.push(allProductData[i].name);
+    likes.push(allProductData[i].liked);
+    liEl.textContent=allProductData[i].name+' ';
+    liEl.textContent+=allProductData[i].liked;
     colors.push('#'+((1<<24)*Math.random()|0).toString(16));//god bless ZPiDER on stackoverflow
     ulEl.appendChild(liEl);
   }

@@ -5,40 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js" integrity="sha256-XF29CBwU1MWLaGEnsELogU6Y6rcc5nCkhhx89nFMIDQ=" crossorigin="anonymous"></script>
+    <link href="reset.css" type="text/css" rel = "styleSheet">
     <link href="style.css" type="text/css" rel = "styleSheet">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <h1>BusMall</h1>
-
+        <div class="formatted">
+            <h1 id="logo">Bus Mall</h1>
+        </div>
     </header>
 
-    <main>
+    <main class="formatted">
 
         <div id="about">
-            <h3>providing a better shopping experience through data analyitics</h3>
-            <p> here at busmall, we strive to brovide the best shopping experience for our customers, to do this </p>
-        </div>
-        <div id="list">
-        </div>
+            <h3>Providing a better shopping experience through data analyitics</h3>
+            <section></section>
+            <p> here at busmall, we strive to brovide the best shopping experience for our 
+                customers, to do this we are cunducting a survey! To participate, All that 
+                you need to do is click on the image that you feel that you would be most 
+                inclined to buy, given the oportunity. We appreciate your support and help 
+                in our research!
 
+            </p>
+        </div>
+        <section id="survey">
+            <h2>Welcome to our survey!</h2>
+        
+        
         <div id="images">
-            <img id="left" src="./assets/bag.jpg"/>
-            <img id="mid" src="./assets/banana.jpg"/>
-            <img id ="right" src="./assets/bathroom.jpg"/>
-            <h3 id="lT"></h3>
-            <h3 id= "mT"></h3>
-            <h3 id="rT"></h3>
+            <div id="imgdiv">
+                <img id="left" src="./assets/bag.jpg"/>
+                <img id="mid" src="./assets/banana.jpg"/>
+                <img id ="right" src="./assets/bathroom.jpg"/>
+            </div>
+            <div id="iT">
+                <ul>
+                    <li id="lT">Bag</li>
+                    <li id= "mT">Banana</li>
+                    <li id="rT">Bathroom</li>
+                </ul>
+            </div>
         </div>
-       
+    </div>
+    </section>
+    
 
-        <div>
-            <canvas id="chart">
-            </canvas>
-        </div>
-    </main>
-
+    <section id="analytics">
+        <h1 id="analTitle"></h1>
+            <div id="chart">
+                <canvas id="canvas">
+                </canvas>
+            </div>
+            <div id="list">
+            </div>
+    </section>
+</main>
 
 </body>
 <script href src="app.js"></script>
